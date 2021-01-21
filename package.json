@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/sandycamilo/BEW1.3-GIF-Search-App/issues"
   },
-  "homepage": "https://github.com/sandycamilo/BEW1.3-GIF-Search-App#readme"
+  "homepage": "https://github.com/sandycamilo/BEW1.3-GIF-Search-App#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
