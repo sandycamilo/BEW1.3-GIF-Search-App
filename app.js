@@ -16,12 +16,12 @@ app.set('view engine', 'handlebars');
 
 //routes - endpoint- get route ~ getting info to read 
 // app() is an instance of Express
-app.get('/', (req, res) => {
-  // set the url of the gif
-  const gifUrl = 'https://media1.tenor.com/images/561c988433b8d71d378c9ccb4b719b6c/tenor.gif?itemid=10058245'
-  // render the hello-gif view, passing the gifUrl into the view to be displayed
-  res.render('hello-gif', { gifUrl })
-})
+// app.get('/', (req, res) => {
+//   // set the url of the gif
+//   const gifUrl = 'https://media1.tenor.com/images/561c988433b8d71d378c9ccb4b719b6c/tenor.gif?itemid=10058245'
+//   // render the hello-gif view, passing the gifUrl into the view to be displayed
+//   res.render('hello-gif', { gifUrl })
+// })
 
 // new route for greetings 
 app.get('/greetings/:name', (req, res) => {
@@ -31,6 +31,13 @@ app.get('/greetings/:name', (req, res) => {
   res.render('greetings', { name })
 })
 
+// route for home 
+app.get('/', (req, res) => {
+  // example URL "http://localhost:3000/?term=hey"
+  console.log(req.query) // => "{ term: hey" }
+
+  res.render('home')
+})
 
 // start server 
 app.listen(3000, () => {
