@@ -3,11 +3,11 @@
 // require libraries 
 const express = require('express');
 
-// tell Express app that your static files will live in the public folder
-app.use(express.static('public'));
-
 // app setup 
 const app = express();
+
+// tell Express app that your static files will live in the public folder
+app.use(express.static('public'));
 
 // middleware ~ plugins or libraries we use to extend a web framework
 // used to allow Express (our web framework) to render HTML templates and send them back to the client 
