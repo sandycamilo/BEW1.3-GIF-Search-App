@@ -1,11 +1,16 @@
-// add express to start web server 
-
 // require libraries 
 const express = require('express');
 
+// Require tenorjs near the top of the file
+const Tenor = require("tenorjs").client({
+  // Replace with your own key
+  "Key": "process.env.TENOR_API_KEY", // https://tenor.com/developer/keyregistration
+  "Filter": "high", // "off", "low", "medium", "high", not case sensitive
+  "Locale": "en_US", // Your locale here, case-sensitivity depends on input
+});
+
 // app setup 
 const app = express();
-
 // tell Express app that your static files will live in the public folder
 app.use(express.static('public'));
 
@@ -18,14 +23,6 @@ app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
 //routes - endpoint- get route ~ getting info to read 
-// app() is an instance of Express
-// app.get('/', (req, res) => {
-//   // set the url of the gif
-//   const gifUrl = 'https://media1.tenor.com/images/561c988433b8d71d378c9ccb4b719b6c/tenor.gif?itemid=10058245'
-//   // render the hello-gif view, passing the gifUrl into the view to be displayed
-//   res.render('hello-gif', { gifUrl })
-// })
-
 // new route for greetings 
 app.get('/greetings/:name', (req, res) => {
   // grab the name from the path provided
@@ -41,15 +38,6 @@ app.get('/', (req, res) => {
 
   res.render('home')
 })
-
-// Require tenorjs near the top of the file
-const Tenor = require("tenorjs").client({
-  // Replace with your own key
-  "Key": "TENOR_API_KEY", // https://tenor.com/developer/keyregistration
-  "Filter": "high", // "off", "low", "medium", "high", not case sensitive
-  "Locale": "en_US", // Your locale here, case-sensitivity depends on input
-});
-
 
 // Routes
 app.get('/', (req, res) => {
