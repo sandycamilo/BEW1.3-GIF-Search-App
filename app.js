@@ -3,6 +3,9 @@
 // require libraries 
 const express = require('express');
 
+// tell Express app that your static files will live in the public folder
+app.use(express.static('public'));
+
 // app setup 
 const app = express();
 
